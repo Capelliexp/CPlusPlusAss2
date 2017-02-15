@@ -142,6 +142,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Box.cpp" />
+    <ClCompile Include="Cone.cpp" />
+    <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="ShapeRegister.cpp" />
+    <ClCompile Include="ShapeRegisterSystem.cpp" />
+    <ClCompile Include="TestShapeRegister.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Box.h" />
+    <ClInclude Include="Cone.h" />
+    <ClInclude Include="Shape.h" />
+    <ClInclude Include="ShapeRegister.h" />
+    <ClInclude Include="ShapeRegisterSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
