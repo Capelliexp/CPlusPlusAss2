@@ -1,18 +1,18 @@
 #ifndef CONE_H
 #define CONE_H
+#define _USE_MATH_DEFINES
 
 #include "Shape.h"
 #include <string>
+#include <cmath>
 
 class Cone : public Shape {
 private:
-	const float pi = 3.14;
 	float radius;
 public:
 	float GetRadius() const;
-	float GetHeight() const;
 
-	void SetRadius(float newRadius);
+	bool SetRadius(float newRadius);
 
 	void CalcVolume();
 	virtual std::string toString() const;

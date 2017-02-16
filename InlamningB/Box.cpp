@@ -7,20 +7,21 @@ float Box::GetWidth() const {
 	return this->width;
 }
 
-void Box::SetLength(float newLength){
+bool Box::SetLength(float newLength){
 	this->length = newLength;
 	Box::CalcVolume();
+	return true;
 }
-void Box::SetWidth(float newWidth){
+bool Box::SetWidth(float newWidth){
 	this->width = newWidth;
 	Box::CalcVolume();
+	return true;
 }
 
 void Box::CalcVolume() {
 	float volume = length * width * Shape::GetHeight();
 	Shape::SetVolume(volume);
 }
-
 std::string Box::toString() const {
 	std::string lengthString = std::to_string(this->length);
 	lengthString.erase(lengthString.find_last_not_of('0') + 2, std::string::npos);
@@ -42,7 +43,6 @@ Box::Box(float startLength, float startWidth, float startHeight) : Shape(startHe
 	this->width = startWidth;
 	Box::CalcVolume;
 }
-
 Box::~Box(){
 	//empty
 }

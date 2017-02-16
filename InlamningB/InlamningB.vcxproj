@@ -147,7 +147,10 @@
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="ShapeRegister.cpp" />
     <ClCompile Include="ShapeRegisterSystem.cpp" />
-    <ClCompile Include="TestShapeRegister.cpp" />
+    <ClCompile Include="TestShapeRegister.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />

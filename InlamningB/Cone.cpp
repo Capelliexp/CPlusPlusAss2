@@ -4,16 +4,16 @@ float Cone::GetRadius() const {
 	return this->radius;
 }
 
-void Cone::SetRadius(float newRadius) {
+bool Cone::SetRadius(float newRadius) {
 	this->radius = newRadius;
 	Cone::CalcVolume();
+	return true;
 }
 
 void Cone::CalcVolume() {
-	float volume = (pi*radius*radius*Shape::GetHeight())/3;
+	float volume = (M_PI*radius*radius*Shape::GetHeight())/3;
 	Shape::SetVolume(volume);
 }
-
 std::string Cone::toString() const {
 	std::string radiusString = std::to_string(this->radius);
 	radiusString.erase(radiusString.find_last_not_of('0') + 2, std::string::npos);
@@ -31,7 +31,6 @@ Cone::Cone(float startRadius, float startHeight) : Shape(startHeight) {
 	this->radius = startRadius;
 	Cone::CalcVolume;
 }
-
 Cone::~Cone() {
 	//empty
 }

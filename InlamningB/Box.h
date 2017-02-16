@@ -12,8 +12,8 @@ public:
 	float GetLength() const;
 	float GetWidth() const;
 
-	void SetLength(float newLength);
-	void SetWidth(float newWidth);
+	bool SetLength(float newLength);
+	bool SetWidth(float newWidth);
 
 	void CalcVolume();
 	virtual std::string toString() const;
