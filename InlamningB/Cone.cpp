@@ -22,14 +22,16 @@ std::string Cone::toString() const {
 	heightString.erase(heightString.find_last_not_of('0') + 2, std::string::npos);
 
 	std::string volumeString = std::to_string(Shape::GetVolume());
-	volumeString.erase(volumeString.find_last_not_of('0') + 2, std::string::npos);
 
-	return("Radius: " + radiusString + " || Height: " + heightString + " || Total Volume: " + volumeString);
+	return ("(Cone) Radius: " + radiusString + " || Height: " + heightString + " || Total Volume: " + volumeString);
 }
+
+Cone::Cone(Cone &otherConeObject) : Shape(otherConeObject) {}
+void Cone::operator=(Cone &otherConeObject) {}
 
 Cone::Cone(float startRadius, float startHeight) : Shape(startHeight) {
 	this->radius = startRadius;
-	Cone::CalcVolume;
+	Cone::CalcVolume();
 }
 Cone::~Cone() {
 	//empty

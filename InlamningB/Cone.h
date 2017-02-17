@@ -17,6 +17,9 @@ public:
 	void CalcVolume();
 	virtual std::string toString() const;
 
+	Cone(Cone &otherConeObject);
+	void operator=(Cone &otherConeObject);
+
 	Cone(float startRadius, float startHeight);
 	virtual ~Cone();
 

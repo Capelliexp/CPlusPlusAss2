@@ -35,6 +35,9 @@ bool Shape::SetRadius(float newRadius) {
 	return false;
 }
 
+Shape::Shape(Shape &otherShapeObject) {}
+//void Shape::operator=(Shape &otherShapeObject) {}
+
 Shape::Shape(float startHeight){
 	this->height = startHeight;
 }

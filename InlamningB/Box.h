@@ -18,6 +18,9 @@ public:
 	void CalcVolume();
 	virtual std::string toString() const;
 
+	Box(Box &otherBoxObject);
+	void operator=(Box &otherBoxObject);
+
 	Box(float startLength, float startWidth, float startHeight);
 	virtual ~Box();
 

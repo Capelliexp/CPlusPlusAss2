@@ -33,15 +33,17 @@ std::string Box::toString() const {
 	heightString.erase(heightString.find_last_not_of('0') + 2, std::string::npos);
 
 	std::string volumeString = std::to_string(Shape::GetVolume());
-	volumeString.erase(volumeString.find_last_not_of('0') + 2, std::string::npos);
 
-	return("Length: " + lengthString + " || Width: " + widthString + " || Height: " + heightString + " || Total Volume: " + volumeString);
+	return("(Box)  Length: " + lengthString + " || Width:  " + widthString + " || Height: " + heightString + " || Total Volume: " + volumeString);
 }
+
+Box::Box(Box &otherBoxObject) : Shape(otherBoxObject) {}
+void Box::operator=(Box &otherBoxObject) {}
 
 Box::Box(float startLength, float startWidth, float startHeight) : Shape(startHeight){
 	this->length = startLength;
 	this->width = startWidth;
-	Box::CalcVolume;
+	Box::CalcVolume();
 }
 Box::~Box(){
 	//empty

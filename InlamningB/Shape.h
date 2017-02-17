@@ -23,6 +23,9 @@ public:
 	virtual std::string toString() const = 0;	//pure virtual
 	virtual void CalcVolume() = 0;				//pure virtual
 
+	Shape(Shape &otherShapeObject);
+	virtual void operator=(Shape &otherShapeObject) = 0;	//pure virtual
+
 	Shape(float startHeight);
 	virtual ~Shape();
 

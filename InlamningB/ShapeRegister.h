@@ -9,8 +9,8 @@
 class ShapeRegister {
 private:
 	Shape** shapeArray;
-	unsigned int freeSpace;
-	unsigned int size;
+	int freeSpace;
+	int size;
 public:
 	bool AddCone(float startRadius, float startHeight);
 	bool AddBox(float startLength, float startWidth, float startHeight);

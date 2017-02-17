@@ -1,4 +1,6 @@
-#include "ShapeRegister.h"
+#include "ShapeRegister.h" 
+#include <string>
+#include <iostream>
 
 bool ShapeRegister::AddCone(float startRadius, float startHeight){
 	if (SearchShapeHeight(startHeight) != -1) return false;
@@ -21,7 +23,7 @@ bool ShapeRegister::AddCone(float startRadius, float startHeight){
 			shapeArray[i] = temp[i];
 		}
 
-		shapeArray[size + 1] = new Cone(startRadius, startHeight);
+		shapeArray[size] = new Cone(startRadius, startHeight);
 
 		this->size = size + 1;
 		delete[] temp;
@@ -36,6 +38,7 @@ bool ShapeRegister::AddBox(float startLength, float startWidth, float startHeigh
 
 	if (freeSpace > 0) {
 		shapeArray[size - freeSpace] = new Box(startLength, startWidth, startHeight);
+		this->freeSpace = freeSpace - 1;
 		return true;
 	}
 	else {
@@ -47,11 +50,11 @@ bool ShapeRegister::AddBox(float startLength, float startWidth, float startHeigh
 		delete[] this->shapeArray;
 		this->shapeArray = new Shape*[size + 1];
 
-		for (int i = 0; i < size; i++) {
+		for (int i = 0; i < (size - freeSpace); i++) {
 			shapeArray[i] = temp[i];
 		}
 
-		shapeArray[size + 1] = new Box(startLength, startWidth, startHeight);
+		shapeArray[size] = new Box(startLength, startWidth, startHeight);
 
 		this->size = size + 1;
 		delete[] temp;
@@ -90,9 +93,12 @@ bool ShapeRegister::RemoveShape(float height) {
 bool ShapeRegister::GetAllShapesAsStrings(std::string arr[], int capOfArr){
 	if (capOfArr < (size - freeSpace)) return false;
 
-	for (int i = 0; i < (size - freeSpace); i++) {
-		arr[i] = shapeArray[i]->toString();
+	int looper;
+	for (looper = 0; looper < (size - freeSpace); looper++) {
+		arr[looper] = shapeArray[looper]->toString();
 	}
+	arr[looper] = "end";
+
 	return true;
 }
 bool ShapeRegister::GetAllConesAsStrings(std::string arr[], int capOfArr){
@@ -105,6 +111,8 @@ bool ShapeRegister::GetAllConesAsStrings(std::string arr[], int capOfArr){
 			arrayIterator++;
 		}
 	}
+	arr[arrayIterator] = "end";
+
 	return true;
 }
 bool ShapeRegister::GetAllBoxesAsStrings(std::string arr[], int capOfArr){
@@ -117,27 +125,35 @@ bool ShapeRegister::GetAllBoxesAsStrings(std::string arr[], int capOfArr){
 			arrayIterator++;
 		}
 	}
+	arr[arrayIterator] = "end";
+
 	return true;
 }
 
 bool ShapeRegister::EditACone(float searchHeight, float newRadius, float newHeight){
 	int iterator = SearchShapeHeight(searchHeight);
-	if (iterator = -1) return false;
+	if (iterator == -1) return false;
 
-	if (this->shapeArray[iterator]->SetRadius(newRadius) == false) return false;
-	if (this->shapeArray[iterator]->SetHeight(newHeight) == false) return false;
+	if (dynamic_cast<Cone*>(shapeArray[iterator])) {
+		if (this->shapeArray[iterator]->SetRadius(newRadius) == false) return false;
+		if (this->shapeArray[iterator]->SetHeight(newHeight) == false) return false;
+		return true;
+	}
 
-	return true;
+	return false;
 }
 bool ShapeRegister::EditABox(float searchHeight, float newLength, float newWidth, float newHeight){
 	int iterator = SearchShapeHeight(searchHeight);
-	if (iterator = -1) return false;
+	if (iterator == -1) return false;
 
-	if (this->shapeArray[iterator]->SetLength(newLength) == false) return false;
-	if (this->shapeArray[iterator]->SetWidth(newWidth) == false) return false;
-	if (this->shapeArray[iterator]->SetHeight(newHeight) == false) return false;
+	if (dynamic_cast<Box*>(shapeArray[iterator])) {
+		if (this->shapeArray[iterator]->SetLength(newLength) == false) return false;
+		if (this->shapeArray[iterator]->SetWidth(newWidth) == false) return false;
+		if (this->shapeArray[iterator]->SetHeight(newHeight) == false) return false;
+		return true;
+	}
 
-	return true;
+	return false;
 }
 
 int ShapeRegister::NrOfShapes(){
