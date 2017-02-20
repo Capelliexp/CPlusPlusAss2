@@ -2,6 +2,7 @@
 #define BOX_H
 
 #include "Shape.h"
+#include <iostream>
 #include <string>
 
 class Box : public Shape {
@@ -19,7 +20,7 @@ public:
 	virtual std::string toString() const;
 
 	Box(Box &otherBoxObject);
-	void operator=(Box &otherBoxObject);
+	Box& operator=(Box &otherBoxObject);
 
 	Box(float startLength, float startWidth, float startHeight);
 	virtual ~Box();

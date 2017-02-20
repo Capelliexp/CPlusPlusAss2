@@ -77,8 +77,10 @@ bool ShapeRegister::RemoveShape(float height) {
 		temp[i] = shapeArray[i + 1];
 	}
 
+	delete[] this->shapeArray[iterator];
 	delete[] this->shapeArray;
-	this->shapeArray = new Shape*[size - 1];
+
+	this->shapeArray = new Shape*[size - 1 + freeSpace];
 
 	for (int i = 0; i < (size - 1 - freeSpace); i++) {
 		shapeArray[i] = temp[i];
@@ -181,6 +183,37 @@ int ShapeRegister::SearchShapeHeight(float height) {
 		}
 	}
 	return -1;	//ingen height funnen
+}
+
+int ShapeRegister::TestCopyConstructor() {
+	int res = -1;
+	Box *testC = new Box(33.0f, 33.0f, 33.0f);
+	Box *testD = new Box(*testC);
+
+	if ((testD->GetHeight() == testC->GetHeight()) && (testD->GetLength() == testC->GetLength()) &&
+		(testD->GetWidth() == testC->GetWidth()))
+		res = 1;
+
+	delete[] testC;
+	delete[] testD;
+
+	return res;
+}
+int ShapeRegister::TestAssignmentOperator() {
+	int res = -1;
+	Cone *testA = new Cone(11.0f, 11.0f);
+	Cone *testB = new Cone(22.0f, 22.0f);
+	
+	*testB = *testA;
+
+	if ((testB->GetHeight() == testA->GetHeight()) && (testB->GetRadius() == testA->GetRadius()))
+		res = 1;
+
+	delete[] testA;	
+	delete[] testB;
+	
+
+	return res;
 }
 
 ShapeRegister::ShapeRegister(unsigned int startValue){

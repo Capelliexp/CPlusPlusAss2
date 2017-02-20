@@ -26,8 +26,16 @@ std::string Cone::toString() const {
 	return ("(Cone) Radius: " + radiusString + " || Height: " + heightString + " || Total Volume: " + volumeString);
 }
 
-Cone::Cone(Cone &otherConeObject) : Shape(otherConeObject) {}
-void Cone::operator=(Cone &otherConeObject) {}
+Cone::Cone(Cone &otherConeObject) : Shape(otherConeObject) {
+	this->radius = otherConeObject.GetRadius();
+}
+Cone& Cone::operator=(Cone &otherConeObject) {
+	this->radius = otherConeObject.GetRadius();
+	Shape::SetVolume(otherConeObject.GetVolume());
+	Shape::SetHeight(otherConeObject.GetHeight());
+
+	return *this;
+}
 
 Cone::Cone(float startRadius, float startHeight) : Shape(startHeight) {
 	this->radius = startRadius;

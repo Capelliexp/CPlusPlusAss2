@@ -29,6 +29,9 @@ public:
 
 	int SearchShapeHeight(float height);
 
+	int TestCopyConstructor();
+	int TestAssignmentOperator();
+
 	ShapeRegister(unsigned int startValue);
 	~ShapeRegister();
 };

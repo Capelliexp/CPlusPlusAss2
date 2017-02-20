@@ -37,8 +37,18 @@ std::string Box::toString() const {
 	return("(Box)  Length: " + lengthString + " || Width:  " + widthString + " || Height: " + heightString + " || Total Volume: " + volumeString);
 }
 
-Box::Box(Box &otherBoxObject) : Shape(otherBoxObject) {}
-void Box::operator=(Box &otherBoxObject) {}
+Box::Box(Box &otherBoxObject) : Shape(otherBoxObject) {
+	this->length = otherBoxObject.GetLength();
+	this->width = otherBoxObject.GetWidth();
+}
+Box& Box::operator=(Box &otherBoxObject) {
+	this->length = otherBoxObject.GetLength();
+	this->width = otherBoxObject.GetWidth();
+	Shape::SetVolume(otherBoxObject.GetVolume());
+	Shape::SetHeight(otherBoxObject.GetHeight());
+
+	return *this;
+}
 
 Box::Box(float startLength, float startWidth, float startHeight) : Shape(startHeight){
 	this->length = startLength;

@@ -3,6 +3,7 @@
 #define _USE_MATH_DEFINES
 
 #include "Shape.h"
+#include <iostream>
 #include <string>
 #include <cmath>
 
@@ -18,7 +19,7 @@ public:
 	virtual std::string toString() const;
 
 	Cone(Cone &otherConeObject);
-	void operator=(Cone &otherConeObject);
+	Cone& operator=(Cone &otherConeObject);
 
 	Cone(float startRadius, float startHeight);
 	virtual ~Cone();
