@@ -20,18 +20,18 @@ bool Shape::SetVolume(float newVolume) {
 	this->volume = newVolume;
 	return true;
 }
-bool Shape::SetHeight(float newHeight) {
+bool Shape::SetHeight(const float newHeight) {
 	this->height = newHeight;
 	CalcVolume();
 	return true;
 }
-bool Shape::SetLength(float newLength) {
+bool Shape::SetLength(const float newLength) {
 	return false;
 }
-bool Shape::SetWidth(float newWidth) {
+bool Shape::SetWidth(const float newWidth) {
 	return false;
 }
-bool Shape::SetRadius(float newRadius) {
+bool Shape::SetRadius(const float newRadius) {
 	return false;
 }
 
@@ -39,7 +39,7 @@ Shape::Shape(Shape &otherShapeObject) {
 	this->volume = otherShapeObject.GetVolume();
 	this->height = otherShapeObject.GetHeight();
 }
-Shape::Shape(float startHeight){
+Shape::Shape(const float startHeight){
 	this->height = startHeight;
 }
 Shape::~Shape() {

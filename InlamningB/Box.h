@@ -13,8 +13,8 @@ public:
 	float GetLength() const;
 	float GetWidth() const;
 
-	bool SetLength(float newLength);
-	bool SetWidth(float newWidth);
+	bool SetLength(const float newLength);
+	bool SetWidth(const float newWidth);
 
 	void CalcVolume();
 	virtual std::string toString() const;
@@ -22,7 +22,7 @@ public:
 	Box(Box &otherBoxObject);
 	Box& operator=(Box &otherBoxObject);
 
-	Box(float startLength, float startWidth, float startHeight);
+	Box(const float startLength, const float startWidth, const float startHeight);
 	virtual ~Box();
 
 };

@@ -4,7 +4,7 @@ float Cone::GetRadius() const {
 	return this->radius;
 }
 
-bool Cone::SetRadius(float newRadius) {
+bool Cone::SetRadius(const float newRadius) {
 	this->radius = newRadius;
 	Cone::CalcVolume();
 	return true;
@@ -37,7 +37,7 @@ Cone& Cone::operator=(Cone &otherConeObject) {
 	return *this;
 }
 
-Cone::Cone(float startRadius, float startHeight) : Shape(startHeight) {
+Cone::Cone(const float startRadius, const float startHeight) : Shape(startHeight) {
 	this->radius = startRadius;
 	Cone::CalcVolume();
 }

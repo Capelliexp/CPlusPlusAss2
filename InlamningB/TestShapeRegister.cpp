@@ -11,15 +11,15 @@ int main() {
 	Register.AddCone(1.0f, 1.0f);	//skapa 3 cone-objekt
 	Register.AddCone(2.0f, 2.0f);
 	Register.AddCone(3.0f, 3.0f);
-	std::cout << "Skapa 3 cone-objekt" << std::endl << std::endl;
+	std::cout << "<Skapa 3 cone-objekt>" << std::endl << std::endl;
 
 	Register.AddBox(4.0f, 4.0f, 4.0f);	//skapa 3 box-objekt
 	Register.AddBox(5.0f, 5.0f, 5.0f);
 	Register.AddBox(6.0f, 6.0f, 6.0f);
-	std::cout << "Skapa 3 box-objekt" << std::endl << std::endl;
+	std::cout << "<Skapa 3 box-objekt>" << std::endl << std::endl;
 
 	Register.RemoveShape(99.0f);	//ta bort ett icke-existerande objekt
-	std::cout << "Ta bort ett icke-existerande objekt" << std::endl << std::endl;
+	std::cout << "<Ta bort ett icke-existerande objekt>" << std::endl << std::endl;
 
 	std::cout << "Skriv ut alla objekt:" << std::endl;
 	std::string *arr1 = new std::string[7];	//skriv ut alla objekt
@@ -32,7 +32,7 @@ int main() {
 
 	Register.RemoveShape(1.0f);	//ta bort 1 kon och 1 låda
 	Register.RemoveShape(4.0f);
-	std::cout << "Ta bort den första konen och lådan" << std::endl << std::endl;
+	std::cout << "<Ta bort den första konen och lådan>" << std::endl << std::endl;
 
 	std::cout << "Skriv ut alla objekt:" << std::endl;
 	std::string *arr2 = new std::string[5];	//skriv ut alla objekt
@@ -44,7 +44,7 @@ int main() {
 	delete[] arr2;
 
 	Register.EditACone(2.0f, 22.0f, 22.0f);	//ändra konen med 2 i höjd
-	std::cout << "Ändra konen med 2 i höjd" << std::endl << std::endl;
+	std::cout << "<Ändra konen med 2 i höjd>" << std::endl << std::endl;
 
 	std::cout << "Skriv ut alla kon-objekt:" << std::endl;
 	std::string *arr3 = new std::string[3];	//skriv ut alla objekt

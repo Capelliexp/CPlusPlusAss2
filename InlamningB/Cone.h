@@ -13,7 +13,7 @@ private:
 public:
 	float GetRadius() const;
 
-	bool SetRadius(float newRadius);
+	bool SetRadius(const float newRadius);
 
 	void CalcVolume();
 	virtual std::string toString() const;
@@ -21,7 +21,7 @@ public:
 	Cone(Cone &otherConeObject);
 	Cone& operator=(Cone &otherConeObject);
 
-	Cone(float startRadius, float startHeight);
+	Cone(const float startRadius, const float startHeight);
 	virtual ~Cone();
 
 };

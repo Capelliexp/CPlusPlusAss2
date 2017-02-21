@@ -12,27 +12,27 @@ private:
 	int freeSpace;
 	int size;
 public:
-	bool AddCone(float startRadius, float startHeight);
-	bool AddBox(float startLength, float startWidth, float startHeight);
-	bool RemoveShape(float height);
+	bool AddCone(const float startRadius, const float startHeight);
+	bool AddBox(const float startLength, const float startWidth, const float startHeight);
+	bool RemoveShape(const float height);
 
-	bool GetAllShapesAsStrings(std::string arr[], int capOfArr);
-	bool GetAllConesAsStrings(std::string arr[], int capOfArr);
-	bool GetAllBoxesAsStrings(std::string arr[], int capOfArr);
+	bool GetAllShapesAsStrings(std::string arr[], const int capOfArr);
+	bool GetAllConesAsStrings(std::string arr[], const int capOfArr);
+	bool GetAllBoxesAsStrings(std::string arr[], const int capOfArr);
 
-	bool EditACone(float searchHeight, float newRadius, float newHeight);
-	bool EditABox(float searchHeight, float newLength, float newWidth, float newHeight);
+	bool EditACone(const float searchHeight, const float newRadius, const float newHeight);
+	bool EditABox(const float searchHeight, const float newLength, const float newWidth, const float newHeight);
 
 	int NrOfShapes();
 	int NrOfCones();
 	int NrOfBoxes();
 
-	int SearchShapeHeight(float height);
+	int SearchShapeHeight(const float height);
 
 	int TestCopyConstructor();
 	int TestAssignmentOperator();
 
-	ShapeRegister(unsigned int startValue);
+	ShapeRegister(const unsigned int startValue);
 	~ShapeRegister();
 };
 #endif

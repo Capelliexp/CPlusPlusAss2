@@ -15,15 +15,15 @@ int main() {
 	int choice;
 	while (1) {
 		std::cout <<
-			"1. Add cone" << std::endl <<
-			"2. Add box" << std::endl <<
-			"3. Remove shape" << std::endl <<
-			"4. Print all shapes" << std::endl <<
-			"5. Print all cones" << std::endl <<
-			"6. Print all boxes" << std::endl <<
-			"7. Edit a cone" << std::endl <<
-			"8. Edit a box" << std::endl <<
-			"9. Print total amount of shapes" << std::endl <<
+			" 1. Add cone" << std::endl <<
+			" 2. Add box" << std::endl <<
+			" 3. Remove shape" << std::endl <<
+			" 4. Print all shapes" << std::endl <<
+			" 5. Print all cones" << std::endl <<
+			" 6. Print all boxes" << std::endl <<
+			" 7. Edit a cone" << std::endl <<
+			" 8. Edit a box" << std::endl <<
+			" 9. Print total amount of shapes" << std::endl <<
 			"10. Print amount of cones" << std::endl <<
 			"11. Print amount of boxes" << std::endl <<
 			"12. Exit" << std::endl << std::endl <<

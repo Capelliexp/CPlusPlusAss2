@@ -7,12 +7,12 @@ float Box::GetWidth() const {
 	return this->width;
 }
 
-bool Box::SetLength(float newLength){
+bool Box::SetLength(const float newLength){
 	this->length = newLength;
 	Box::CalcVolume();
 	return true;
 }
-bool Box::SetWidth(float newWidth){
+bool Box::SetWidth(const float newWidth){
 	this->width = newWidth;
 	Box::CalcVolume();
 	return true;
@@ -50,7 +50,7 @@ Box& Box::operator=(Box &otherBoxObject) {
 	return *this;
 }
 
-Box::Box(float startLength, float startWidth, float startHeight) : Shape(startHeight){
+Box::Box(const float startLength, const float startWidth, const float startHeight) : Shape(startHeight){
 	this->length = startLength;
 	this->width = startWidth;
 	Box::CalcVolume();
